@@ -117,6 +117,20 @@ When creating an Intune deployment solution provide:
 - Dependencies
 - Validation steps
 
+When recommending a native Microsoft Intune detection method or
+configuration:
+
+- Verify that the proposed detection capability actually exists for the
+  selected Intune application type.
+- Do not assume that detection options available for Win32 apps are also
+  available for LOB, MSIX/AppX, Microsoft Store, or other app types.
+- Distinguish between Intune's built-in application state/version
+  evaluation and a user-configurable detection rule.
+- Do not invent configuration fields, comparison operators, or detection
+  settings that are not supported by the selected Intune app type.
+- If native capability is uncertain, explicitly identify the uncertainty
+  rather than presenting an unverified configuration as fact.  
+
 ## INTUNE CUSTOM DETECTION SCRIPT RULES
 When generating or evaluating Microsoft Intune Win32 custom
 detection scripts:
