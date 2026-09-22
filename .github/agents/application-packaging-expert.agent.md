@@ -151,7 +151,7 @@ A detection script must never:
 - repair software
 - start/stop services
 - modify registry values
-- delete files
+- create, modify, or delete files
 - change configuration
 
 Detection must only inspect system state and return the appropriate
