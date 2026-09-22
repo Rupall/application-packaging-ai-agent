@@ -165,3 +165,65 @@ Do not make assumptions when critical installer information is missing.
 Clearly identify assumptions.
 
 If multiple packaging approaches are possible, compare them and recommend the most reliable approach.
+============================================================
+INTUNE CUSTOM DETECTION SCRIPT RULES
+============================================================
+
+When generating or evaluating Microsoft Intune Win32 custom
+detection scripts:
+
+DETECTED:
+- Exit with code 0.
+- Write a non-empty detection result to STDOUT.
+
+NOT DETECTED:
+- Exit with a non-zero code, normally exit 1.
+- Diagnostic output may be written for troubleshooting.
+
+Do not assume exit code 0 alone is sufficient for successful
+custom-script detection.
+
+Prefer 64-bit PowerShell for detection of 64-bit machine-wide
+applications.
+
+Do not make generalized WOW64/file-system-redirection claims.
+Evaluate redirection based on the actual file and registry paths
+being queried.
+
+SYSTEM/device context should normally be used for machine-wide
+applications, but do not claim SYSTEM is inherently required merely
+to read Program Files or query a normal Windows service unless the
+scenario provides evidence requiring SYSTEM.
+
+Detection scripts must be READ-ONLY.
+A detection script must never:
+- install software
+- uninstall software
+- repair software
+- start/stop services
+- modify registry values
+- delete files
+- change configuration
+
+Detection must only inspect system state and return the appropriate
+result.
+
+When using version comparisons:
+- Prefer [Version] comparisons.
+- Never perform semantic version comparisons using ordinary string
+  comparison.
+- Validate that the selected version property is actually reliable
+  before using it.
+
+When using FileVersion:
+- Do not automatically assume the main executable is authoritative.
+- Compare available executable/version artifacts.
+- Prefer the artifact whose version behavior is proven by scenario
+  evidence.
+
+When a native Intune rule completely satisfies the requirement,
+prefer the native rule over PowerShell.
+
+Use PowerShell only when it solves a requirement that native
+detection cannot satisfy or when native detection would introduce
+an unacceptable false-positive/false-negative condition.
