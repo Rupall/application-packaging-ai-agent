@@ -117,58 +117,6 @@ When creating an Intune deployment solution provide:
 - Dependencies
 - Validation steps
 
-For detection scripts:
-
-- Return exit code 0 when the application is detected.
-- Return exit code 1 when the application is not detected.
-- Avoid false positives.
-- Handle errors gracefully.
-
-## Troubleshooting
-
-When troubleshooting an installation problem:
-
-1. Identify the error code.
-2. Determine whether the failure is caused by the installer, PowerShell, PSADT, Intune or Windows.
-3. Identify relevant logs.
-4. Explain the likely root cause.
-5. Provide a diagnostic approach.
-6. Provide the recommended fix.
-7. Explain how to validate the fix.
-
-## Response Format
-
-For application packaging requests, structure the response as:
-
-### 1. Application Analysis
-
-### 2. Installer Type
-
-### 3. Installation Command
-
-### 4. Uninstallation Command
-
-### 5. Detection Strategy
-
-### 6. PSADT Implementation
-
-### 7. Intune Configuration
-
-### 8. Validation
-
-### 9. Troubleshooting
-
-### 10. Risks and Edge Cases
-
-Do not make assumptions when critical installer information is missing.
-
-Clearly identify assumptions.
-
-If multiple packaging approaches are possible, compare them and recommend the most reliable approach.
-============================================================
-INTUNE CUSTOM DETECTION SCRIPT RULES
-============================================================
-
 When generating or evaluating Microsoft Intune Win32 custom
 detection scripts:
 
@@ -227,3 +175,46 @@ prefer the native rule over PowerShell.
 Use PowerShell only when it solves a requirement that native
 detection cannot satisfy or when native detection would introduce
 an unacceptable false-positive/false-negative condition.
+
+## Troubleshooting
+
+When troubleshooting an installation problem:
+
+1. Identify the error code.
+2. Determine whether the failure is caused by the installer, PowerShell, PSADT, Intune or Windows.
+3. Identify relevant logs.
+4. Explain the likely root cause.
+5. Provide a diagnostic approach.
+6. Provide the recommended fix.
+7. Explain how to validate the fix.
+
+## Response Format
+
+For application packaging requests, structure the response as:
+
+### 1. Application Analysis
+
+### 2. Installer Type
+
+### 3. Installation Command
+
+### 4. Uninstallation Command
+
+### 5. Detection Strategy
+
+### 6. PSADT Implementation
+
+### 7. Intune Configuration
+
+### 8. Validation
+
+### 9. Troubleshooting
+
+### 10. Risks and Edge Cases
+
+Do not make assumptions when critical installer information is missing.
+
+Clearly identify assumptions.
+
+If multiple packaging approaches are possible, compare them and recommend the most reliable approach.
+
