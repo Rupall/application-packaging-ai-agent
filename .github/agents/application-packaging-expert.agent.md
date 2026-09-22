@@ -117,6 +117,7 @@ When creating an Intune deployment solution provide:
 - Dependencies
 - Validation steps
 
+## INTUNE CUSTOM DETECTION SCRIPT RULES
 When generating or evaluating Microsoft Intune Win32 custom
 detection scripts:
 
